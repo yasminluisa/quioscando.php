@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QUIOSCANDO</title>
+    <link rel="stylesheet" href="geral/geral.css">
+</head>
+<body>
+    <form action="garcom.php" method="post">
+        <header>
+            <h1>QUIOSCANDO
+                <hr>
+                <input type="text" name="nm_garcom" id="nome-garcom" placeholder="Nome do Garçom">
+            </h1>
+        </header>
+
+        <main>
+            <section id="menu">
+                <button type="button" onclick="toggleMenu('menu-mesa')">Menu Mesas</button>
+                <button type="button" onclick="toggleMenu('menu-bebidas')">Bebidas</button>
+                <button type="button" onclick="toggleMenu('menu-comidas')">Comidas</button>
+
+                <ul id="menu-mesa" style="display: none;">
+                    <li id="1" class="mesa menu-item" onclick="selecionarMesa(id)">Mesa 1</li>
+                    <li id="2" class="mesa menu-item" onclick="selecionarMesa(id)">Mesa 2</li>
+                    <li id="3" class="mesa menu-item" onclick="selecionarMesa(id)">Mesa 3</li>
+                    <li id="4" class="mesa menu-item" onclick="selecionarMesa(id)">Mesa 4</li>
+                    <li id="5" class="mesa menu-item" onclick="selecionarMesa(id)">Mesa 5</li>
+                    <li id="6" class="mesa menu-item" onclick="selecionarMesa(id)">Mesa 6</li>
+                    <hr>
+                </ul>
+
+                <ul id="menu-bebidas" style="display: none;">
+                    <li class="bebida menu-item" onclick="addItemToCart('Água de Coco', 5.00, 'bebida',1)">Água de Coco🥥 - R$5.00</li>
+                    <li class="bebida menu-item" onclick="addItemToCart('Caipirinha', 12.00, 'bebida',2)">Caipirinha🍹 - R$12.00</li>
+                    <li class="bebida menu-item" onclick="addItemToCart('Suco de Frutas Tropicais', 8.00, 'bebida',3)">Suco 🧃- R$8.00</li>
+                    <li class="bebida menu-item" onclick="addItemToCart('Água', 2.00, 'bebida',4)">Água 💦- R$2.00</li>
+                    <li class="bebida menu-item" onclick="addItemToCart('Cerveja Gelada', 7.00, 'bebida',5)">Cerveja Gelada 🍺- R$7.00</li>
+                    <hr>
+                </ul>
+
+                <ul id="menu-comidas" style="display: none;">
+                    <li class="comida menu-item" onclick="addItemToCart('Pastel de Camarão', 10.00, 'comida',1)">Pastel de Camarão 🦐- R$10.00</li>
+                    <li class="comida menu-item" onclick="addItemToCart('Açaí na Tigela', 12.00, 'comida',2)">Açaí na Tigela 🍨 - R$12.00</li>
+                    <li class="comida menu-item" onclick="addItemToCart('Salgados', 6.00, 'comida',3)">salgados 🥐- R$6.00</li>
+                    <li class="comida menu-item" onclick="addItemToCart('Porção de batata frita', 10.00, 'comida',4)">Porção de batata frita 🍟-R$10.00</li>
+                </ul>
+            </section>
+
+            <section id="carrinho">
+                <h2>Carrinho 🛒</h2>
+                <ul id="carrinho-items"></ul>
+                <p>Total Bebidas : R$ <span id="total-bebidas">0.00</span></p>
+                <p>Total Comidas : R$ <span id="total-comidas">0.00</span></p>
+                <p>Total Geral: R$ <span id="total">0.00</span></p>
+                <input type="number" id="mn-mesa" name="menu-mesa" hidden>
+                <input type="text" id="mn-carrinho" name="menu-carrinho" hidden>
+                <input type="text" id="mn-quantidade" name="menu-quantidade" hidden>
+                <button type="submit" id="finalizar-pedido">Finalizar Pedido</button>
+                <button type="button" id="limpar-pedido" onclick="limparPedido()">Novo pedido</button>
+            </section>
+        </main>
+        <script src="main.js"></script>
+    </form>
+</body>
+</html>
